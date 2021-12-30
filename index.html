@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>complete responsive personal portfolio website desgin</title>
+    <title>Alpannope Portfolio</title>
 
     <!-- font awesome cdn link  -->
     <link
@@ -256,13 +256,12 @@
 
     <section class="contact" id="contact">
       <h1 class="heading"><span>contact</span> me</h1>
-
-      <form action="" method="post" class="form">
+      <form name="portfolio-contact-form" class="form"">
         <input
           type="text"
           class="box"
           id="name"
-          name="name"
+          name="nama"
           placeholder="your name"
         />
         <input
@@ -276,11 +275,11 @@
           type="text"
           class="box"
           id="subject"
-          name="subject"
+          name="phone"
           placeholder="your phone"
         />
         <textarea
-          name="msg"
+          name="pesan"
           class="box"
           placeholder="your message"
           id="msg"
@@ -288,7 +287,7 @@
           rows="10"
         ></textarea>
         <div class="button-area">
-          <input type="submit" value="send message" class="btn" name="submit" />
+          <input type="submit" value="send message" class="btn" name="pesan" />
           <!-- <span>Sending your message..</span> -->
         </div>
       </form>
@@ -315,6 +314,20 @@
         typeSpeed: 150,
         backSpeed: 150,
         loop: true,
+      });
+    </script>
+
+    <!-- Contact Form -->
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbwQ5v0omCj_PS1vXFEZhvZxxwDlq5aK5tiqA_MYjjqXRwB7SIbALBT6EHdl9-HbIgjFOA/exec";
+      const form = document.forms["port-contact-form"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
       });
     </script>
   </body>
